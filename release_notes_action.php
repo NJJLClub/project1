@@ -57,8 +57,9 @@
 			break;
 	}
 	
+	header('Location: http://localhost/project1/release_notes.php');
 	
-	print "OP: $op , $tool_name , \"$comment\" , Date: \"$entry_date\" ";
+#	print "OP: $op , $tool_name , \"$comment\" , Date: \"$entry_date\" ";
 	
 
 ?>

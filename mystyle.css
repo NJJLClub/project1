@@ -1,0 +1,40 @@
+#container 
+{ 
+   width: 800px; //auto;
+   height: auto;
+   margin: 0 auto;
+   padding: 5px;
+   background : #d0d0d0;
+   border: 1px solid #555;
+   text-align : left;
+} 
+
+
+#container #navigation 
+{ 
+   background : #c0c0c0;
+   position: absolute; 
+   left: 30px; 
+   top: 5px ;
+  
+   border: 1px solid #555;
+}
+
+.clear { clear : both; }
+
+#container #content
+{
+	background: #f0f0f0;
+//	width: 740px;
+	margin : 0px;
+	padding: 5px;
+//	float : left;
+    border: 1px solid #555;
+}
+
+#container #footer
+{
+	background: black;
+	foreground: white;
+	
+}
