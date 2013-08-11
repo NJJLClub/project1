@@ -1,12 +1,13 @@
 <?php
 
-	$remote_user = isset( $_SERVER['REMOTE_USER'] )  ? $_SERVER['REMOTE_USER'] : ''; 
+	$remote_user = isset( $_SERVER['REMOTE_USER'] )  ? $_SERVER['REMOTE_USER'] : $_SERVER['SERVER_NAME']; 
 	
 	$op         =  isset( $_POST['op'] ) ? $_POST['op'] : '' ;        // ADD,REMOVE
 	$tool_name  =  isset( $_POST['tool'] ) ? strtoupper( $_POST['tool'] ) : 'NoTool' ;
 	$comment =     isset( $_POST['comment'] ) ? $_POST['comment'] : 'No Notes' ;
 	$entry_date =  isset( $_POST['date'] ) ? $_POST['date'] : 'Today' ;
 	$id =          isset( $_POST['id'] ) ? $_POST['id'] : '' ;
+	$user =        isset( $_POST['user'] ) ? $_POST['user'] : "$remote_user" ;
 
 	switch ( strtolower($op) )
 	{
@@ -19,15 +20,15 @@
 				break;
 			}
 			
-			$sql = "INSERT INTO dbtable (tool,comment,date) 
-				VALUES ( '$tool_name', '$comment', '$entry_date' ) ";
+			$sql = "INSERT INTO dbtable (tool,comment,date,user) 
+				VALUES ( '$tool_name', '$comment', '$entry_date', '$user' ) ";
 				
 			if ( ! mysqli_query($con, $sql) )
 			{
 				die('Error: ' . mysqli_error($con));
 			}
 			
-			echo "1 record added to database";
+			echo "1 record added to database: $tool_name $entry_date $user .";
 			
 			
 			mysqli_close($con);

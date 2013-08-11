@@ -30,7 +30,7 @@
 		<input type="text" name="comment" size="40" placeholder="Enter Comment Here" >
 
 		Date: 
-		<input type="date" name="date"  >
+		<input type="date" name="date" value="<?= date("Y-m-d") ?>" >
 
 		<input type="submit" value="GO">
 
@@ -55,6 +55,7 @@
 			<th>Tool</th>
 			<th>Comment</th>
 			<th>Date</th>
+			<th>User</th>
 		</tr>
 
 			<?php
@@ -68,6 +69,7 @@
 					echo "<td> ${row['tool']}  </td>";
 					echo "<td> ${row['comment']}  </td>";
 					echo "<td> ${row['date']}  </td>";
+					echo "<td> ${row['user']} </td>";
 					
 					echo '</tr>';
 					
