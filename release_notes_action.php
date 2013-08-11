@@ -1,5 +1,7 @@
 <?php
 
+	$remote_user = isset( $_SERVER['REMOTE_USER'] )  ? $_SERVER['REMOTE_USER'] : ''; 
+	
 	$op         =  isset( $_POST['op'] ) ? $_POST['op'] : '' ;        // ADD,REMOVE
 	$tool_name  =  isset( $_POST['tool'] ) ? strtoupper( $_POST['tool'] ) : 'NoTool' ;
 	$comment =     isset( $_POST['comment'] ) ? $_POST['comment'] : 'No Notes' ;
@@ -9,7 +11,7 @@
 	switch ( strtolower($op) )
 	{
 		case 'add' :
-			print "Adding New Release Note<br>\n";
+			print "$remote_user Adding New Release Note<br>\n";
 			$con = mysqli_connect("localhost","jjladero","","test");
 			if ( mysqli_connect_errno($con))
 			{
